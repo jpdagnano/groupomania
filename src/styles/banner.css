@@ -1,0 +1,16 @@
+#header{
+    height: 100px;
+    border-bottom: solid 4px #4E5166;
+    border-bottom-left-radius: 10PX;
+    border-bottom-right-radius: 10PX
+    ;
+}
+.div-logo{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.groupo-logo{
+    display: flex;
+}
