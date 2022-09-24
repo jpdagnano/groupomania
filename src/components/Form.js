@@ -5,15 +5,19 @@ function Form() {
     <div className="full-form">
       <div className="login-form">
         <form>
-          <h1>Login</h1>
+          <h1>Connexion</h1>
           <div className="content">
             <div className="input-field">
-              <input type="email" placeholder="Email" autocomplete="nope" />
+              <input
+                type="email"
+                placeholder="Adresse e-mail"
+                autocomplete="nope"
+              />
             </div>
             <div className="input-field">
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="Mot de passe"
                 autocomplete="new-password"
               />
             </div>
