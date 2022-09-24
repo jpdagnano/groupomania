@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import Banner from "./components/Banner";
-import Form from "./components/Form";
+import Auth from "./pages/Auth";
+import Home from "./pages/Home";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <div>
-      <Banner /> <Form />;
-    </div>
+    <Router>
+      <Home />
+    </Router>
   </React.StrictMode>
 );
 
