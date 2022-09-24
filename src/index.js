@@ -1,13 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./App.css";
 import "./index.css";
-import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
+import Banner from "./components/Banner";
+import Form from "./components/Form";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <div>
+      <Banner /> <Form />;
+    </div>
   </React.StrictMode>
 );
 
