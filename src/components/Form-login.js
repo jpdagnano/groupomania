@@ -42,10 +42,16 @@ function Form() {
             </div>
           </div>
           <div className="action">
-            <button className="register-btn">Inscrivez-vous</button>
             <button className="login-btn">Se connecter</button>
           </div>
         </form>
+        <div className="no-account">
+          <p>
+            Pas encore inscrit ? cliquez{" "}
+            <a href="http://localhost:3000/signup">ici</a> pour accéder au
+            formulaire
+          </p>
+        </div>
       </div>
     </div>
   );

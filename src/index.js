@@ -5,6 +5,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Validcreation from "./pages/Validcreation";
 import Home from "./pages/Home";
+import Signup from "./pages/Signup";
 import Error from "./components/Error/index";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -12,7 +13,8 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/auth/createsuccess" element={<Validcreation />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/createsuccess" element={<Validcreation />} />
       <Route path="*" element={<Error />} />
     </Routes>
   </BrowserRouter>
