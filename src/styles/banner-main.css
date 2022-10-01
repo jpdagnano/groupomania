@@ -1,0 +1,31 @@
+#header-main{
+    display: flex;
+    height: 100px;
+    border-bottom: solid 4px #4E5166;
+    border-bottom-left-radius: 10PX;
+    border-bottom-right-radius: 10PX
+    
+}
+.div-logo-main{
+    height: 100px;
+    display: flex;
+}
+
+.groupo-logo-main{
+    display: flex;
+    margin-left:20PX
+}
+
+.button-banner{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    
+}
+
+.focus-button{
+    text-decoration: none;
+    color: #FD2D01;
+}
+
