@@ -1,9 +1,10 @@
 import "../styles/form.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { redirect, Navigate, Route } from "react-router-dom";
+import { redirect, useNavigate, Route } from "react-router-dom";
 
 function FormSignup() {
+  const navigate = useNavigate();
   const {
     handleSubmit,
     register,
@@ -16,7 +17,7 @@ function FormSignup() {
       body: JSON.stringify(data),
     }).then(function (response) {
       if (response.ok) {
-        redirect("http://localhost:3000/createsuccess");
+        navigate("/createsuccess");
         console.log("fait");
       } else {
         console.log("pas ok");
@@ -24,14 +25,10 @@ function FormSignup() {
     });
   }
 
-  function onError(errors) {
-    return console.log(errors);
-  }
-
   return (
     <div className="full-form">
       <div className="login-form">
-        <form onSubmit={handleSubmit(onSubmit, onError)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <h1>Inscription</h1>
           <div className="content">
             <div className="input-field">
