@@ -9,7 +9,6 @@ function Form() {
     formState: { errors },
   } = useForm();
   function onSubmit(data) {
-    console.log(data);
   }
   return (
     <div className="full-form">
