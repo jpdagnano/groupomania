@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import Validcreation from "./pages/Validcreation";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
+import Main from "./pages/Main";
 import Error from "./components/Error/index";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -15,6 +16,7 @@ root.render(
       <Route path="/" element={<Home />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/createsuccess" element={<Validcreation />} />
+      <Route path="/main" element={<Main />} />
       <Route path="*" element={<Error />} />
     </Routes>
   </BrowserRouter>

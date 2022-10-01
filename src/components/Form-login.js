@@ -1,15 +1,30 @@
 import "../styles/form.css";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
-function Form() {
+function FormLogin() {
+  const navigate = useNavigate();
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
   function onSubmit(data) {
+    fetch("http://localhost:3001/", {
+      ContentType: "application/x-www-form-urlencoded",
+      method: "POST",
+      body: JSON.stringify(data),
+    }).then(function (response) {
+      if (response.ok) {
+        navigate("/main");
+        console.log("fait");
+      } else {
+        alert("Adresse mail ou mot de passe incorrect");
+      }
+    });
   }
+
   return (
     <div className="full-form">
       <div className="login-form">
@@ -21,7 +36,11 @@ function Form() {
                 type="email"
                 placeholder="Adresse e-mail"
                 autocomplete="nope"
-                {...register("email", { required: true })}
+                {...register("email", {
+                  required: true,
+                  pattern:
+                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                })}
               />
               {errors.email && <p>Adresse invalide</p>}
             </div>
@@ -56,4 +75,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default FormLogin;

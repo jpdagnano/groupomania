@@ -1,7 +1,7 @@
 import "../styles/form.css";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import { redirect, useNavigate, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function FormSignup() {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ function FormSignup() {
         navigate("/createsuccess");
         console.log("fait");
       } else {
-        console.log("pas ok");
+        alert("Il semblerait que votre compte existe déjà");
       }
     });
   }
@@ -36,7 +36,11 @@ function FormSignup() {
                 type="email"
                 placeholder="Adresse e-mail"
                 autocomplete="nope"
-                {...register("email", { required: true })}
+                {...register("email", {
+                  required: true,
+                  pattern:
+                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                })}
               />
               {errors.email && <p>Adresse invalide</p>}
             </div>
