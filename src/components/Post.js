@@ -24,8 +24,9 @@ function Post() {
           <div className="date">June 24, 2020</div>
         </div>
         <div>
-          <div class="likes">
- 
+          <div className="likes">
+            <i className="fa-regular fa-thumbs-up"></i>
+            <div className="number-likes">0 like</div>
           </div>
         </div>
       </div>
