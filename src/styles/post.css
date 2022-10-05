@@ -1,0 +1,27 @@
+.article-global{
+    padding-top: 30px;
+    margin-top: 30px;
+    margin-left:20px;
+    width: 450px;
+    border-top: solid 3px black;
+}
+
+.article-titre{
+    color:#FD2D01;
+}
+
+.article-texte{
+    text-align: justify;
+}
+.image-solo{
+    object-fit: cover;
+    text-decoration: none;
+}
+
+.date{
+    padding-bottom: 15px;
+    border-bottom: solid 1px black;
+}
+.article-like{
+    padding-top: 5px;
+}

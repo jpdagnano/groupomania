@@ -7,6 +7,7 @@ import Validcreation from "./pages/Validcreation";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Main from "./pages/Main";
+import Createp from "./pages/Createpost";
 import Error from "./components/Error/index";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -17,6 +18,7 @@ root.render(
       <Route path="/signup" element={<Signup />} />
       <Route path="/createsuccess" element={<Validcreation />} />
       <Route path="/main" element={<Main />} />
+      <Route path="/createpost" element={<Createp />} />
       <Route path="*" element={<Error />} />
     </Routes>
   </BrowserRouter>

@@ -1,13 +1,16 @@
+import React from "react";
+import image200 from "../assets/image200x200.png";
+import "../styles/post.css";
+
 function Post() {
   return (
     <div className="article-global">
       <div className="lien-image">
-        <a href="post.html" className="lien">
-          <div className="image-global">
-            <img src="#" alt="Image" className="image" />
-          </div>
-          <h2 className="article-titre">Exemple titre</h2>
-        </a>
+        <div className="image-global">
+          <img src={image200} alt="article" className="image-solo" />
+        </div>
+        <h2 className="article-titre">Exemple titre</h2>
+
         <p className="article-texte">
           Lorem ipsum dolor sit amet. Rem earum necessitatibus At earum culpa
           non consequatur dolorem et odio sint in rerum impedit. Est iure sunt
@@ -21,8 +24,8 @@ function Post() {
           <div className="date">June 24, 2020</div>
         </div>
         <div>
-          <div className="article-like">
-            <div>36 like</div>
+          <div class="likes">
+ 
           </div>
         </div>
       </div>
