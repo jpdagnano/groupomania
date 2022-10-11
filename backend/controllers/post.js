@@ -2,8 +2,8 @@ const Post = require("../models/post");
 //CREATION POST
 
 exports.createPost = (req, res, next) => {
-  //const postObject = JSON.parse(req.body);
   console.log(req.body);
+  const postObject = req.body;
   const post = new Post({
     ...postObject,
     imageUrl: `${req.protocol}://${req.get("host")}/images/${
