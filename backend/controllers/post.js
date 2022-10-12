@@ -3,12 +3,11 @@ const Post = require("../models/post");
 
 exports.createPost = (req, res, next) => {
   console.log(req.body);
+
   const postObject = req.body;
   const post = new Post({
     ...postObject,
-    imageUrl: `${req.protocol}://${req.get("host")}/images/${
-      req.file.filename
-    }`,
+    imageUrl: `${req.protocol}://${req.get("host")}/images/${Date.now()}`,
     likes: 0,
     usersLiked: [],
   });

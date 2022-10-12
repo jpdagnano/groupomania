@@ -13,9 +13,6 @@ function CreatePost() {
   function onSubmit(data) {
     fetch("http://localhost:3001/createpost", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify(data),
     }).then(function (response) {
       if (response.ok) {
@@ -30,14 +27,14 @@ function CreatePost() {
   return (
     <div className="bloc-form">
       <div className="div-full-form">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
           <div className="form-elem">
             <div className="div-elem-form">
-              <label for="titre">
+              <label htmlFor="titre">
                 Titre de l'article:
                 <input
                   type="text"
-                  autocomplete="nope"
+                  autoComplete="nope"
                   {...register("titre", {
                     required: true,
                     minLength: 10,
@@ -49,11 +46,11 @@ function CreatePost() {
               </label>
             </div>
             <div className="div-elem-form">
-              <label for="description">
+              <label htmlFor="description">
                 Article:
                 <input
                   type="text"
-                  autocomplete="nope"
+                  autoComplete="nope"
                   {...register("description", {
                     required: true,
                     minLength: 50,
@@ -65,11 +62,13 @@ function CreatePost() {
               </label>
             </div>
             <div className="form-group">
-              <label for="imageUrl">
+              <label htmlFor="imageUrl">
                 Insérer une image
                 <input
+                  type="file"
+                  name="image"
                   accept="image/jpg, image/jpeg, image/png"
-                  autocomplete="nope"
+                  autoComplete="nope"
                   {...register("imageUrl", {
                     required: true,
                   })}
