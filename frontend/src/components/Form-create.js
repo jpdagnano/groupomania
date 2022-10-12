@@ -13,9 +13,13 @@ function CreatePost() {
   function onSubmit(data) {
     fetch("http://localhost:3001/createpost", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(data),
     }).then(function (response) {
       if (response.ok) {
+        console.log(data);
         navigate("/main");
         console.log("fait");
       } else {
@@ -27,11 +31,7 @@ function CreatePost() {
   return (
     <div className="bloc-form">
       <div className="div-full-form">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          encType="multipart/form-data"
-          action="/createpost"
-        >
+        <form onSubmit={handleSubmit(onSubmit)} enctype="multipart/form-data">
           <div className="form-elem">
             <div className="div-elem-form">
               <label htmlFor="titre">
