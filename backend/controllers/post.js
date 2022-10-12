@@ -2,8 +2,6 @@ const Post = require("../models/post");
 //CREATION POST
 
 exports.createPost = (req, res, next) => {
-  console.log(req.body);
-
   const postObject = req.body;
   const post = new Post({
     ...postObject,

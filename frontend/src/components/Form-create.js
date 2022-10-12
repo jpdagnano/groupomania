@@ -27,7 +27,11 @@ function CreatePost() {
   return (
     <div className="bloc-form">
       <div className="div-full-form">
-        <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          encType="multipart/form-data"
+          action="/createpost"
+        >
           <div className="form-elem">
             <div className="div-elem-form">
               <label htmlFor="titre">
@@ -69,7 +73,7 @@ function CreatePost() {
                   name="image"
                   accept="image/jpg, image/jpeg, image/png"
                   autoComplete="nope"
-                  {...register("imageUrl", {
+                  {...register("image", {
                     required: true,
                   })}
                 />

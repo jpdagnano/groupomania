@@ -11,11 +11,11 @@ const storage = multer.diskStorage({
     callback(null, images);
   },
   filename: (req, file, callback) => {
+    console.log(file);
     const name = file.originalname;
     const extension = MIME_TYPES[file.mimetype];
     callback(null, name + "." + extension);
   },
 });
-console.log("oco");
 
 module.exports = multer({ storage: storage }).single("image");
