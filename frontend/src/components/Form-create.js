@@ -14,8 +14,9 @@ function CreatePost() {
     fetch("http://localhost:3001/createpost", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-type": "multipart/form-data",
       },
+
       body: JSON.stringify(data),
     }).then(function (response) {
       if (response.ok) {

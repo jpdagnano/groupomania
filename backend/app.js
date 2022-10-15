@@ -3,8 +3,10 @@ const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
 const path = require("path");
+const formidableMiddleware = require("express-formidable");
 const userRoutes = require("./routes/user");
 const postRoutes = require("./routes/post");
+const postCtrl = require("./controllers/post");
 
 app.use(express.json({ type: "*/*" }));
 app.use(cors());
@@ -13,10 +15,16 @@ app.use(
     extended: true,
   })
 );
+app.use(
+  formidableMiddleware({
+    uploadDir: "../images",
+  })
+);
 
 app.use("/images", express.static(path.join(__dirname, "image")));
 app.use("/", userRoutes);
-app.use("/", postRoutes);
+//app.use("/", postRoutes);
+app.post("/createpost", postCtrl.createPost);
 
 mongoose
   .connect(
