@@ -3,6 +3,7 @@ const Post = require("../models/post");
 
 exports.createPost = (req, res, next) => {
   console.log(req.body);
+  console.log(req.file)
   const postObject = req.body;
   const post = new Post({
     ...postObject,
