@@ -10,6 +10,7 @@ function FormSignup() {
     register,
     formState: { errors },
   } = useForm();
+
   function onSubmit(data) {
     fetch("http://localhost:3001/signup", {
       ContentType: "application/x-www-form-urlencoded",

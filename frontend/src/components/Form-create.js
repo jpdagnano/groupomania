@@ -13,8 +13,10 @@ function CreatePost() {
   function onSubmit(data) {
     fetch("http://localhost:3001/createpost", {
       method: "POST",
+
       headers: {
         "content-type": "multipart/form-data",
+        Boundary: `&`,
       },
 
       body: JSON.stringify(data),
