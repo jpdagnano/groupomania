@@ -15,7 +15,7 @@ function FormSignup() {
     fetch("http://localhost:3001/signup", {
       ContentType: "application/x-www-form-urlencoded",
       method: "POST",
-      body: JSON.stringify(data),
+      body: new URLSearchParams(data),
     }).then(function (response) {
       if (response.ok) {
         navigate("/createsuccess");

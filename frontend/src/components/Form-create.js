@@ -11,15 +11,14 @@ function CreatePost() {
     formState: { errors },
   } = useForm();
   function onSubmit(data) {
+    let formdata = new FormData();
+    formdata.append("titre", data.titre);
+    formdata.append("description", data.description);
+    formdata.append("image", data.image[0]);
+    console.log(data.image);
     fetch("http://localhost:3001/createpost", {
       method: "POST",
-
-      headers: {
-        "content-type": "multipart/form-data",
-        Boundary: `&`,
-      },
-
-      body: JSON.stringify(data),
+      body: formdata,
     }).then(function (response) {
       if (response.ok) {
         console.log(data);
