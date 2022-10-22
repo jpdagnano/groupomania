@@ -5,9 +5,9 @@ const multer = require("../middleware/multer");
 const app = express();
 const postCtrl = require("../controllers/post");
 
-//router.get("/main", auth, postCtrl.getAllPosts);
+router.get("/main", postCtrl.getAllPosts);
 // router.get("/:id", auth, postCtrl.getOneSauce);
-router.post("/createpost", auth, multer, postCtrl.createPost);
+router.post("/createpost", multer, postCtrl.createPost);
 
 /* router.put("/:id", auth, multer, postCtrl.modifySauce);
 router.delete("/:id", auth, postCtrl.deleteSauce);

@@ -12,8 +12,10 @@ function FormLogin() {
   } = useForm();
   function onSubmit(data) {
     fetch("http://localhost:3001/", {
-      ContentType: "application/x-www-form-urlencoded",
       method: "POST",
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
       body: JSON.stringify(data),
     }).then(function (response) {
       if (response.ok) {
@@ -28,7 +30,7 @@ function FormLogin() {
   return (
     <div className="full-form">
       <div className="login-form">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} encType="application/json">
           <h1>Connexion</h1>
           <div className="content">
             <div className="input-field">

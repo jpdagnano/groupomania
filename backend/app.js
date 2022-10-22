@@ -8,7 +8,6 @@ const userRoutes = require("./routes/user");
 const postRoutes = require("./routes/post");
 const postCtrl = require("./controllers/post");
 
-
 app.use(cors());
 app.use(
   express.urlencoded({
@@ -25,7 +24,6 @@ app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "image")));
 app.use("/", userRoutes);
 app.use("/", postRoutes);
-// app.post("/createpost", postCtrl.createPost);
 
 mongoose
   .connect(

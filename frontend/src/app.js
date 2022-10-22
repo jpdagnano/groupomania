@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom/client";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
@@ -10,7 +9,6 @@ import Main from "./pages/Main";
 import Createp from "./pages/Createpost";
 import Error from "./components/Error/index";
 import { ProtectedRoute } from "./services/ProtectedRoutes";
-const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function App() {
   return (
@@ -20,14 +18,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/createsuccess" element={<Validcreation />} />
         <Route path="/main" element={<Main />} />
-        <Route
-          path="/createpost"
-          element={
-            <ProtectedRoute>
-              <Createp />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/createpost" element={<Createp />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   // call this function when you want to authenticate the user
   const login = async (data) => {
     setUser(data);
-    navigate("/profile");
+    navigate("/main");
   };
 
   // call this function to sign out logged in user
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
     () => ({
       user,
       login,
-      logout
+      logout,
     }),
     [user]
   );
@@ -31,5 +31,6 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => {
+  console.log(AuthContext);
   return useContext(AuthContext);
 };
