@@ -4,7 +4,7 @@ import Post from "../components/Post";
 
 function Main() {
   return (
-    <div>
+    <div className="page-global">
       <BannerMain />
       <Post />
     </div>

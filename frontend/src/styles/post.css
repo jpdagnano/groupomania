@@ -8,10 +8,12 @@
 
 .article-titre{
     color:#FD2D01;
+    overflow-wrap: break-word
 }
 
 .article-texte{
     text-align: justify;
+    overflow-wrap: break-word
 }
 .image-solo{
     object-fit: cover;
