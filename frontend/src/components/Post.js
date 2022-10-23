@@ -5,11 +5,11 @@ import "../styles/post.css";
 function Post() {
   fetch("http://localhost:3001/main").then((response) =>
     response.json().then((data) => {
-      console.log(data);
-
-      data.map(function (donneesPost) {
-        let artComplet = document.getElementsByClassName("page-global");
-        let artFull = artComplet[0];
+      let artComplet = document.getElementsByClassName("page-global");
+      let artFull = artComplet[0];
+      let globalArticles = document.createElement("div");
+      artFull.insertAdjacentElement("beforeend", globalArticles);
+      data.forEach(function (donneesPost) {
         let articleGlobal = document.createElement("div");
         let lienImage = document.createElement("div");
         let imageGlobal = document.createElement("div");
