@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { useContext } = require("react");
 
 exports.signup = (req, res, next) => {
   console.log(req.body);

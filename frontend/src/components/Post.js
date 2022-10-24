@@ -5,11 +5,11 @@ import "../styles/post.css";
 function Post() {
   fetch("http://localhost:3001/main").then((response) =>
     response.json().then((data) => {
-      let artComplet = document.getElementsByClassName("page-global");
+      let artComplet = document.getElementsByClassName("ensemble-posts");
       let artFull = artComplet[0];
-      let globalArticles = document.createElement("div");
-      artFull.insertAdjacentElement("beforeend", globalArticles);
-      data.forEach(function (donneesPost) {
+
+      data.forEach(function (donneesPost, index) {
+        console.log(index);
         let articleGlobal = document.createElement("div");
         let lienImage = document.createElement("div");
         let imageGlobal = document.createElement("div");
@@ -40,13 +40,14 @@ function Post() {
         lienImage.insertAdjacentElement("beforeend", likesFull);
         likesFull.setAttribute("class", "likes");
         likesFull.insertAdjacentElement("beforeend", likesIcone);
-        likesIcone.setAttribute("class", "fa-regular fa-thumbs-up");
+        likesIcone.setAttribute("class", "fa fa-2x fa-thumbs-up");
         likesFull.insertAdjacentElement("beforeend", numberLike);
         numberLike.setAttribute("class", "number-likes");
 
         artTitre.innerHTML = donneesPost.titre;
         artTexte.innerHTML = donneesPost.description;
         imgSolo.src = image200;
+        numberLike.innerHTML = Number(donneesPost.likes);
       });
     })
   );

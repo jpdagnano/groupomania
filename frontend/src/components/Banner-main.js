@@ -14,6 +14,11 @@ function BannerMain() {
             Tous les posts
           </a>
         </div>
+        <div className="button-all-post bttn-pill bttn-lg bttn-primary">
+          <a className="focus-button" href="/updatepost">
+            Modifier mes posts
+          </a>
+        </div>
         <div className="button-create-post bttn-pill bttn-lg bttn-primary">
           <a className="focus-button" href="/createpost">
             Créer un post

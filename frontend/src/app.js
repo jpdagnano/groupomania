@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Main from "./pages/Main";
 import Createp from "./pages/Createpost";
+import UpdatePost from "./components/Form-update";
 import Error from "./components/Error/index";
 import { ProtectedRoute } from "./services/ProtectedRoutes";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/createsuccess" element={<Validcreation />} />
         <Route path="/main" element={<Main />} />
         <Route path="/createpost" element={<Createp />} />
+        <Route path="/updatepost" element={<UpdatePost />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
