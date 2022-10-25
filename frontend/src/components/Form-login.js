@@ -17,14 +17,18 @@ function FormLogin() {
         "Content-Type": "application/json",
       }),
       body: JSON.stringify(data),
-    }).then(function (response) {
-      if (response.ok) {
-        navigate("/main");
-        console.log("fait");
-      } else {
-        alert("Adresse mail ou mot de passe incorrect");
-      }
-    });
+    })
+      .then(function (response) {
+        if (response.ok) {
+          return response.json();
+        } else {
+          alert("Adresse mail ou mot de passe incorrect");
+        }
+      })
+      .then();
+    /*  localStorage.setItem("user", response.to);
+    navigate("/main");
+    console.log("fait"); */
   }
 
   return (
