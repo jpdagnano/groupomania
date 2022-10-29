@@ -18,11 +18,11 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route element={<PrivateRoutes />}>
         <Route path="/main" element={<Main />} />
+        <Route path="/createpost" element={<Createp />} />
+        <Route path="/updatepost" element={<UpdatePost />} />
+        <Route path="/createsuccess" element={<Validcreation />} />
       </Route>
-      <Route path="/createsuccess" element={<Validcreation />} />
 
-      <Route path="/createpost" element={<Createp />} />
-      <Route path="/updatepost" element={<UpdatePost />} />
       <Route path="*" element={<Error />} />
     </Routes>
   );

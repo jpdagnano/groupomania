@@ -2,10 +2,11 @@ import "../styles/form.css";
 import { React, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import useAuth from "../components/useAuth";
+import ProtectedRoutes from "../services/PrivateRoutes";
 
 function FormLogin() {
-  const { setAuth } = useAuth();
+  const navigate = useNavigate();
+
   const [userId, setUserId] = useState("");
   const [token, setToken] = useState("");
   const {
@@ -31,11 +32,11 @@ function FormLogin() {
       })
       .then(function (infores) {
         console.log(token);
-        setUserId(infores.userId);
-        setToken(infores.token);
-        setAuth(userId, token);
+
         localStorage.setItem("userId", infores.userId);
         localStorage.setItem("token", infores.token);
+        ProtectedRoutes();
+        navigate("/main");
       });
   }
 

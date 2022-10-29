@@ -7,7 +7,9 @@ exports.createPost = (req, res, next) => {
   const postObject = req.body;
   const post = new Post({
     ...postObject,
+    userId: localStorage.getItem("userId"),
     image: `${req.protocol}://${req.get("host")}/images/${Date.now()}`,
+
     likes: 0,
     usersLiked: [],
   });

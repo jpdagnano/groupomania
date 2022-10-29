@@ -1,7 +1,6 @@
 import "../styles/createsuccess.css";
 
 function CreateSuccess() {
-  console.log("c");
   return (
     <div className="page-success">
       <div className="bloc-success">

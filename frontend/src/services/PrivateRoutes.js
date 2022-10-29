@@ -1,17 +1,19 @@
-import { useLocation, Navigate, Outlet } from "react-router-dom";
-import useAuth from "../components/useAuth";
+import React from "react";
 
-const PrivateRoutes = ({ allowedRoles }) => {
-  const { auth } = useAuth();
-  const location = useLocation();
-
-  return auth?.roles?.find((role) => allowedRoles?.includes(role)) ? (
-    <Outlet />
-  ) : auth?.user ? (
-    <Navigate to="/main" state={{ from: location }} replace />
-  ) : (
-    <Navigate to="/" state={{ from: location }} replace />
-  );
+import { Navigate, Outlet } from "react-router-dom";
+const useAuth = () => {
+  const user = localStorage.getItem("userId");
+  const token = localStorage.getItem("token");
+  if ((user, token)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+const ProtectedRoutes = () => {
+  const auth = useAuth();
+  console.log(auth);
+  return auth ? <Outlet /> : <Navigate to="/" />;
 };
 
-export default PrivateRoutes;
+export default ProtectedRoutes;
