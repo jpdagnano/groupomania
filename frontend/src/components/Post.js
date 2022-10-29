@@ -13,29 +13,32 @@ function Post() {
     );
   }, []);
 
-  let artTitre = document.getElementsByClassName("article-titre");
-  post.forEach((element) => {
-    <div className="article-global">
-      <div className="lien-image">
-        <div className="image-global">
-          <img src={image200} alt="article" className="image-solo" />
-        </div>
-        <h2 className="article-titre">{post.titre}</h2>
+  return post.map(
+    (element, index) => (
+      console.log(element),
+      (
+        <div className="article-global">
+          <div className="lien-image">
+            <div className="image-global">
+              <img src={element.image} alt="article" className="image-solo" />
+            </div>
+            <h2 className="article-titre">{element.titre}</h2>
 
-        <p className="article-texte">{post.description}</p>
-        <div className="article-date">
-          <div className="date">June 24, 2020</div>
-        </div>
-        <div>
-          <div className="likes">
-            <i className="fa-regular fa-thumbs-up"></i>
-            <div className="number-likes">{post.like}</div>
+            <p className="article-texte">{element.description}</p>
+            <div className="article-date">
+              <div className="date">June 24, 2020</div>
+            </div>
+            <div>
+              <div className="likes">
+                <i className="fa-regular fa-thumbs-up"></i>
+                <div className="number-likes">{element.likes}</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>;
-    console.log(element);
-  });
+      )
+    )
+  );
 }
 
 export default Post;

@@ -1,15 +1,19 @@
 import "../styles/form.css";
-import React from "react";
+import { React, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../components/useAuth";
 
 function FormLogin() {
-  const navigate = useNavigate();
+  const { setAuth } = useAuth();
+  const [userId, setUserId] = useState("");
+  const [token, setToken] = useState("");
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
+
   function onSubmit(data) {
     fetch("http://localhost:3001/", {
       method: "POST",
@@ -25,10 +29,14 @@ function FormLogin() {
           alert("Adresse mail ou mot de passe incorrect");
         }
       })
-      .then();
-    /*  localStorage.setItem("user", response.to);
-    navigate("/main");
-    console.log("fait"); */
+      .then(function (infores) {
+        console.log(token);
+        setUserId(infores.userId);
+        setToken(infores.token);
+        setAuth(userId, token);
+        localStorage.setItem("userId", infores.userId);
+        localStorage.setItem("token", infores.token);
+      });
   }
 
   return (

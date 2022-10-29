@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Validcreation from "./pages/Validcreation";
@@ -9,21 +9,22 @@ import Main from "./pages/Main";
 import Createp from "./pages/Createpost";
 import UpdatePost from "./components/Form-update";
 import Error from "./components/Error/index";
-import { ProtectedRoute } from "./services/ProtectedRoutes";
+import PrivateRoutes from "./services/PrivateRoutes";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/createsuccess" element={<Validcreation />} />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route element={<PrivateRoutes />}>
         <Route path="/main" element={<Main />} />
-        <Route path="/createpost" element={<Createp />} />
-        <Route path="/updatepost" element={<UpdatePost />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </BrowserRouter>
+      </Route>
+      <Route path="/createsuccess" element={<Validcreation />} />
+
+      <Route path="/createpost" element={<Createp />} />
+      <Route path="/updatepost" element={<UpdatePost />} />
+      <Route path="*" element={<Error />} />
+    </Routes>
   );
 }
 
