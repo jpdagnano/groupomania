@@ -10,6 +10,7 @@ import Createp from "./pages/Createpost";
 import UpdatePost from "./components/Form-update";
 import Error from "./components/Error/index";
 import PrivateRoutes from "./services/PrivateRoutes";
+import LogoutPage from "./pages/LogoutPage";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path="/updatepost" element={<UpdatePost />} />
         <Route path="/createsuccess" element={<Validcreation />} />
       </Route>
-
+      <Route path="/logout" element={<LogoutPage />} />
       <Route path="*" element={<Error />} />
     </Routes>
   );

@@ -21,7 +21,8 @@
     overflow-wrap: break-word
 }
 .image-solo{
-    object-fit: cover;
+    height: 300px;
+    width: 100%;
     text-decoration: none;
 }
 

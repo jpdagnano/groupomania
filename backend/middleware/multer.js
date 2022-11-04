@@ -8,14 +8,14 @@ const MIME_TYPES = {
 
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, "./images" );
+    callback(null, "./images");
   },
   filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
     const extension = MIME_TYPES[file.mimetype];
-    console.log(file.fieldname + '-' + uniqueSuffix + "." + extension)
-    cb(null, file.fieldname + '-' + uniqueSuffix + "." + extension)
-  }
+    console.log(file.fieldname + "-" + uniqueSuffix + "." + extension);
+    cb(null, file.fieldname + "-" + uniqueSuffix + "." + extension);
+  },
 });
 
 module.exports = multer({ storage: storage }).single("image");

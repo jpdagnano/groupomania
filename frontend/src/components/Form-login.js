@@ -3,12 +3,14 @@ import { React, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import ProtectedRoutes from "../services/PrivateRoutes";
+import axios from "axios";
+import { useEffect } from "react";
 
 function FormLogin() {
   const navigate = useNavigate();
 
-  const [userId, setUserId] = useState("");
   const [token, setToken] = useState("");
+  console.log(token);
   const {
     handleSubmit,
     register,
@@ -31,10 +33,9 @@ function FormLogin() {
         }
       })
       .then(function (infores) {
-        console.log(token);
-
-        localStorage.setItem("userId", infores.userId);
         localStorage.setItem("token", infores.token);
+        setToken("hi");
+
         ProtectedRoutes();
         navigate("/main");
       });

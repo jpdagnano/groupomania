@@ -2,11 +2,17 @@ import React, { useState, useEffect } from "react";
 import image200 from "../assets/image200x200.png";
 import OnePost from "./Post-solo";
 import "../styles/post.css";
+import moment from "moment";
+moment.locale();
 
 function Post() {
   const [post, setPost] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3001/main").then((response) =>
+    fetch("http://localhost:3001/main", {
+      headers: new Headers({
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      }),
+    }).then((response) =>
       response.json().then((data) => {
         setPost(data);
       })
@@ -26,7 +32,7 @@ function Post() {
 
             <p className="article-texte">{element.description}</p>
             <div className="article-date">
-              <div className="date">June 24, 2020</div>
+              <div className="date">{moment(element.date).format("L")}</div>
             </div>
             <div>
               <div className="likes">

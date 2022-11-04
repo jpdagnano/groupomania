@@ -7,7 +7,7 @@ const postSchema = mongoose.Schema({
   image: { type: String },
   likes: { type: Number },
   usersLiked: { type: Array },
-  date: { type: Date, default: date.now },
+  date: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Post", postSchema);

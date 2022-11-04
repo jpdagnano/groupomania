@@ -2,6 +2,7 @@ import "../styles/createpost.css";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 function CreatePost() {
   const navigate = useNavigate();
   const {
@@ -9,6 +10,7 @@ function CreatePost() {
     register,
     formState: { errors },
   } = useForm();
+
   function onSubmit(data) {
     let formdata = new FormData();
     formdata.append("titre", data.titre);
@@ -16,7 +18,11 @@ function CreatePost() {
     formdata.append("image", data.image[0]);
     console.log(data.image);
     fetch("http://localhost:3001/createpost", {
+      headers: new Headers({
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      }),
       method: "POST",
+
       body: formdata,
     }).then(function (response) {
       if (response.ok) {
@@ -71,7 +77,6 @@ function CreatePost() {
                 Insérer une image
                 <input
                   type="file"
-                  name="image"
                   accept="image/jpg, image/jpeg, image/png"
                   autoComplete="nope"
                   {...register("image", {
