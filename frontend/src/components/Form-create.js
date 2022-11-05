@@ -3,6 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { DateTime } from "luxon";
 function CreatePost() {
   const navigate = useNavigate();
   const {
@@ -16,6 +17,7 @@ function CreatePost() {
     formdata.append("titre", data.titre);
     formdata.append("description", data.description);
     formdata.append("image", data.image[0]);
+    formdata.append("userId", localStorage.getItem("userId"));
     console.log(data.image);
     fetch("http://localhost:3001/createpost", {
       headers: new Headers({

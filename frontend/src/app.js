@@ -7,10 +7,11 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Main from "./pages/Main";
 import Createp from "./pages/Createpost";
-import UpdatePost from "./components/Form-update";
+import UserPost from "./pages/Userpost";
 import Error from "./components/Error/index";
 import PrivateRoutes from "./services/PrivateRoutes";
 import LogoutPage from "./pages/LogoutPage";
+import UpdatePost from "./pages/Updatepost";
 
 function App() {
   return (
@@ -20,8 +21,9 @@ function App() {
       <Route element={<PrivateRoutes />}>
         <Route path="/main" element={<Main />} />
         <Route path="/createpost" element={<Createp />} />
-        <Route path="/updatepost" element={<UpdatePost />} />
+        <Route path="/userpost" element={<UserPost />} />
         <Route path="/createsuccess" element={<Validcreation />} />
+        <Route path="/updatepost" element={<UpdatePost />} />
       </Route>
       <Route path="/logout" element={<LogoutPage />} />
       <Route path="*" element={<Error />} />

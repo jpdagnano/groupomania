@@ -1,11 +1,13 @@
 import React from "react";
 import BannerMain from "../components/Banner-main";
-import FormUpdate from "../components/Form-update.js";
+import Formpost from "../components/Form-create";
+import ActualPost from "../components/update-actual-post";
 
 function UpdatePost() {
   return (
     <div>
-      <BannerMain /> <FormUpdate />;
+      <BannerMain /> <Formpost />
+      <ActualPost /> ;
     </div>
   );
 }

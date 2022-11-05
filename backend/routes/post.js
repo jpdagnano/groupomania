@@ -6,7 +6,8 @@ const app = express();
 const postCtrl = require("../controllers/post");
 
 router.get("/main", auth, postCtrl.getAllPosts);
-// router.get("/:id", auth, postCtrl.getOneSauce);
+router.get("/userpost", auth, postCtrl.getUserPost);
+router.get("/updatepost", auth, postCtrl.getOnePost);
 router.post("/createpost", auth, multer, postCtrl.createPost);
 
 /* router.put("/:id", auth, multer, postCtrl.modifySauce);

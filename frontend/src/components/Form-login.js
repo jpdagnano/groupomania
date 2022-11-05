@@ -9,8 +9,6 @@ import { useEffect } from "react";
 function FormLogin() {
   const navigate = useNavigate();
 
-  const [token, setToken] = useState("");
-  console.log(token);
   const {
     handleSubmit,
     register,
@@ -33,8 +31,8 @@ function FormLogin() {
         }
       })
       .then(function (infores) {
+        localStorage.setItem("userId", infores.userId);
         localStorage.setItem("token", infores.token);
-        setToken("hi");
 
         ProtectedRoutes();
         navigate("/main");

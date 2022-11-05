@@ -1,7 +1,6 @@
 import React from "react";
 import BannerMain from "../components/Banner-main";
 import Post from "../components/Post";
-import OnePost from "../components/Post-solo";
 
 function Main() {
   return (
@@ -9,7 +8,7 @@ function Main() {
       <BannerMain />
 
       <div className="ensemble-posts">
-      <Post />
+        <Post />
       </div>
     </div>
   );

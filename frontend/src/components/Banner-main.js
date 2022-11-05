@@ -18,7 +18,7 @@ function BannerMain() {
           </a>
         </button>
         <button className="button-all-post bttn-pill bttn-lg bttn-primary">
-          <a className="focus-button" href="/updatepost">
+          <a className="focus-button" href="/userpost">
             Modifier mes posts
           </a>
         </button>

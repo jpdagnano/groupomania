@@ -35,21 +35,37 @@ exports.getAllPosts = (req, res, next) => {
     });
 };
 
-//AFFICHAGE UNE SAUCE
+//AFFICHAGE SAUCE D'UN USER
 
-/* exports.getOneSauce = (req, res, next) => {
-  Sauce.findOne({
-    _id: req.params.id,
+exports.getUserPost = (req, res, next) => {
+  Post.find({
+    userId: req.auth.userId,
   })
-    .then((sauce) => {
-      res.status(200).json(sauce);
+    .then((post) => {
+      res.status(200).json(post);
     })
     .catch((error) => {
       res.status(404).json({
         error: error,
       });
     });
-}; */
+};
+
+//AFFICHAGE D'UN POST
+
+exports.getOnePost = (req, res, next) => {
+  Post.findOne({
+    _id: req.params.id,
+  })
+    .then((post) => {
+      res.status(200).json(post);
+    })
+    .catch((error) => {
+      res.status(404).json({
+        error: error,
+      });
+    });
+};
 
 //MODIFICATION SAUCE
 

@@ -18,7 +18,8 @@
 
 .article-texte{
     text-align: justify;
-    overflow-wrap: break-word
+    overflow-wrap: break-word;
+    color: black;
 }
 .image-solo{
     height: 300px;
@@ -44,4 +45,8 @@
 .number-likes{
     align-items: flex-end;
     display: flex;
+}
+
+.click-article{
+    text-decoration: none;
 }
