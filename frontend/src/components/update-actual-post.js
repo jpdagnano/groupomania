@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 
 function ActualPost() {
   const [post, setPost] = useState([]);
+  const [ident, setIdent] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3001/updatepost", {
       headers: new Headers({
         Authorization: `Bearer ${localStorage.getItem("token")}`,
+        _id: "6366b830e3fcde3dfc27f092",
       }),
     }).then((response) =>
       response.json().then((data) => {

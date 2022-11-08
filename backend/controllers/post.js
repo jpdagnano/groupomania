@@ -55,7 +55,7 @@ exports.getUserPost = (req, res, next) => {
 
 exports.getOnePost = (req, res, next) => {
   Post.findOne({
-    _id: req.params.id,
+    _id: req.params._id,
   })
     .then((post) => {
       res.status(200).json(post);

@@ -1,3 +1,4 @@
+import { element } from "prop-types";
 import React, { useState, useEffect } from "react";
 import "../styles/post.css";
 
@@ -17,7 +18,11 @@ function PostUser() {
 
   return post.map((element) => (
     <div className="article-global">
-      <a className="click-article" id={element._id} href="/updatepost">
+      <a
+        className="click-article"
+        id={element._id}
+        href={"/updatepost?post_id=" + element._id}
+      >
         <div className="lien-image">
           <div className="image-global">
             <img src={element.image} alt="article" className="image-solo" />
