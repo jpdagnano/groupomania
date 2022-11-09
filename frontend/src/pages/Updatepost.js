@@ -1,13 +1,15 @@
 import React from "react";
 import BannerMain from "../components/Banner-main";
-import Formpost from "../components/Form-create";
+import ModifyPost from "../components/Form-modify";
 import ActualPost from "../components/update-actual-post";
+import DeleteButton from "../components/Delete-button";
 
 function UpdatePost() {
   return (
     <div>
-      <BannerMain /> <Formpost />
+      <BannerMain /> <ModifyPost />
       <ActualPost /> ;
+      <DeleteButton />
     </div>
   );
 }

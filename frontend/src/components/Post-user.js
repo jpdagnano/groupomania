@@ -2,6 +2,8 @@ import { element } from "prop-types";
 import React, { useState, useEffect } from "react";
 import "../styles/post.css";
 
+
+
 function PostUser() {
   const [post, setPost] = useState([]);
   useEffect(() => {
@@ -21,7 +23,7 @@ function PostUser() {
       <a
         className="click-article"
         id={element._id}
-        href={"/updatepost?post_id=" + element._id}
+        href={"/updatepost?_id=" + element._id}
       >
         <div className="lien-image">
           <div className="image-global">

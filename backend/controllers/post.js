@@ -35,7 +35,7 @@ exports.getAllPosts = (req, res, next) => {
     });
 };
 
-//AFFICHAGE SAUCE D'UN USER
+//AFFICHAGE POST D'UN USER
 
 exports.getUserPost = (req, res, next) => {
   Post.find({
@@ -54,8 +54,9 @@ exports.getUserPost = (req, res, next) => {
 //AFFICHAGE D'UN POST
 
 exports.getOnePost = (req, res, next) => {
+  console.log(req);
   Post.findOne({
-    _id: req.params._id,
+    _id: req.query._id,
   })
     .then((post) => {
       res.status(200).json(post);
@@ -69,25 +70,25 @@ exports.getOnePost = (req, res, next) => {
 
 //MODIFICATION SAUCE
 
-/* exports.modifySauce = (req, res, next) => {
-  const sauceObject = req.file
+/* exports.modifyPost = (req, res, next) => {
+  const postObject = req.file
     ? {
-        ...JSON.parse(req.body.sauce),
+        ...JSON.parse(req.body.post),
         imageUrl: `${req.protocol}://${req.get("host")}/images/${
           req.file.filename
         }`,
       }
     : { ...req.body };
 
-  delete sauceObject.userId;
-  Sauce.findOne({ _id: req.params.id })
+  delete postObject.userId;
+  Post.findOne({ _id: req.params.id })
     .then((sauce) => {
       if (sauce.userId != req.auth.userId) {
         res.status(401).json({ message: "Not authorized" });
       } else {
         Sauce.updateOne(
           { _id: req.params.id },
-          { ...sauceObject, _id: req.params.id }
+          { ...postObject, _id: req.params.id }
         )
           .then(() =>
             res.status(200).json({ message: "Modification effectuée" })
@@ -102,8 +103,9 @@ exports.getOnePost = (req, res, next) => {
 
 //SUPPRIMER UNE SAUCE
 
-/* exports.deleteSauce = (req, res, next) => {
-  Sauce.deleteOne({ _id: req.params.id })
+exports.deletePost = (req, res, next) => {
+  console.log(req)
+  Post.deleteOne({ _id: req.query._id })
     .then(() => {
       res.status(200).json({
         message: "Sauce supprimée!",
@@ -114,7 +116,7 @@ exports.getOnePost = (req, res, next) => {
         error: error,
       });
     });
-}; */
+};
 
 //MENTION LIKE OU DISLIKE
 

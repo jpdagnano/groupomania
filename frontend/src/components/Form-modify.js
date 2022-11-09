@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { DateTime } from "luxon";
-function CreatePost() {
+function ModifyPost() {
   const navigate = useNavigate();
   const {
     handleSubmit,
@@ -96,4 +96,4 @@ function CreatePost() {
     </div>
   );
 }
-export default CreatePost;
+export default ModifyPost;
