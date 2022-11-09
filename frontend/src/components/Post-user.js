@@ -1,4 +1,4 @@
-import { element } from "prop-types";
+
 import React, { useState, useEffect } from "react";
 import "../styles/post.css";
 
