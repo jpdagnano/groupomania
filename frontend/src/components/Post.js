@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import "../styles/post.css";
 
-
 function Post() {
   const [post, setPost] = useState([]);
   useEffect(() => {
@@ -34,7 +33,7 @@ function Post() {
             </div>
             <div>
               <div className="likes">
-                <i className="fa-regular fa-thumbs-up"></i>
+                <i className="fa-regular fa-thumbs-up fa-2x"></i>
                 <div className="number-likes">{element.likes}</div>
               </div>
             </div>
