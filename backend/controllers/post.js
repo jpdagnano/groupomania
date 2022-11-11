@@ -2,8 +2,6 @@ const Post = require("../models/post");
 //CREATION POST
 
 exports.createPost = (req, res, next) => {
-  console.log(req);
-  console.log(req.file);
   const postObject = req.body;
   const post = new Post({
     ...postObject,
@@ -54,7 +52,6 @@ exports.getUserPost = (req, res, next) => {
 //AFFICHAGE D'UN POST
 
 exports.getOnePost = (req, res, next) => {
-  console.log(req);
   Post.findOne({
     _id: req.query._id,
   })
@@ -70,24 +67,21 @@ exports.getOnePost = (req, res, next) => {
 
 //MODIFICATION SAUCE
 
-/* exports.modifyPost = (req, res, next) => {
+exports.modifyPost = (req, res, next) => {
   const postObject = req.file
     ? {
-        ...JSON.parse(req.body.post),
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${
-          req.file.filename
-        }`,
+        ...req.body,
+        image: `${req.protocol}://${req.get("host")}/${req.file.path}`,
       }
     : { ...req.body };
 
-  delete postObject.userId;
-  Post.findOne({ _id: req.params.id })
-    .then((sauce) => {
-      if (sauce.userId != req.auth.userId) {
+  Post.findOne({ _id: req.query._id })
+    .then((post) => {
+      if (post.userId != req.auth.userId) {
         res.status(401).json({ message: "Not authorized" });
       } else {
-        Sauce.updateOne(
-          { _id: req.params.id },
+        Post.updateOne(
+          { _id: req.query._id },
           { ...postObject, _id: req.params.id }
         )
           .then(() =>
@@ -99,12 +93,11 @@ exports.getOnePost = (req, res, next) => {
     .catch((error) => {
       res.status(400).json({ error });
     });
-}; */
+};
 
 //SUPPRIMER UNE SAUCE
 
 exports.deletePost = (req, res, next) => {
-  console.log(req)
   Post.deleteOne({ _id: req.query._id })
     .then(() => {
       res.status(200).json({

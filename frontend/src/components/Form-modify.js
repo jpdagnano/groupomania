@@ -1,9 +1,12 @@
-import "../styles/createpost.css";
-import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { DateTime } from "luxon";
+
+const pageIdWindow = window.location.search;
+const longId = new URLSearchParams(pageIdWindow);
+const pageId = longId.get("_id");
+
 function ModifyPost() {
   const navigate = useNavigate();
   const {
@@ -19,17 +22,17 @@ function ModifyPost() {
     formdata.append("image", data.image[0]);
     formdata.append("userId", localStorage.getItem("userId"));
     console.log(data.image);
-    fetch("http://localhost:3001/createpost", {
+    fetch("http://localhost:3001/updatepost?_id=" + pageId, {
       headers: new Headers({
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       }),
-      method: "POST",
+      method: "PUT",
 
       body: formdata,
     }).then(function (response) {
       if (response.ok) {
         console.log(data);
-        navigate("/main");
+        navigate("/userpost");
         console.log("fait");
       } else {
         alert("Champ manquant/erreur avec l'image");
