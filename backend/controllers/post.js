@@ -113,15 +113,16 @@ exports.deletePost = (req, res, next) => {
 
 //MENTION LIKE OU DISLIKE
 
-/* exports.likeOrDislike = (req, res, next) => {
-  if (req.body.like === 1) {
-    Sauce.updateOne(
+exports.like = (req, res, next) => {
+  console.log(req);
+  if (req.body.likes == 1) {
+    Post.updateOne(
       {
-        _id: req.params.id,
+        _id: req.body._id,
       },
       {
         $push: {
-          usersLiked: req.body.userId,
+          usersLiked: req.auth.userId,
         },
         $inc: {
           likes: +1,
@@ -140,9 +141,10 @@ exports.deletePost = (req, res, next) => {
       );
   }
   if (req.body.like === -1) {
-    Sauce.updateOne(
+    console.log("2");
+    Post.updateOne(
       {
-        _id: req.params.id,
+        _id: req.query._id,
       },
       {
         $push: {
@@ -165,12 +167,13 @@ exports.deletePost = (req, res, next) => {
       );
   }
   if (req.body.like === 0) {
-    Sauce.findOne({
-      _id: req.params.id,
+    console.log("3");
+    Post.findOne({
+      _id: req.query._id,
     })
       .then((sauce) => {
-        if (sauce.usersLiked.includes(req.body.userId)) {
-          Sauce.updateOne(
+        if (post.usersLiked.includes(req.body.userId)) {
+          Post.updateOne(
             {
               _id: req.params.id,
             },
@@ -195,6 +198,7 @@ exports.deletePost = (req, res, next) => {
             );
         }
         if (sauce.usersDisliked.includes(req.body.userId)) {
+          console.log("4");
           Sauce.updateOne(
             {
               _id: req.params.id,
@@ -226,4 +230,4 @@ exports.deletePost = (req, res, next) => {
         })
       );
   }
-}; */
+};

@@ -1,6 +1,23 @@
+import { element } from "prop-types";
 import React, { useState, useEffect } from "react";
 
 import "../styles/post.css";
+
+function Like() {
+  let elt = document.getElementsByClassName("fa-thumbs-up");
+  let eltSingle = elt.item("id");
+  let eltId = eltSingle.getAttribute("id");
+
+  let urlParameters = `likes=1&_id=${eltId}&`;
+  fetch("http://localhost:3001/main", {
+    method: "POST",
+    headers: new Headers({
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    }),
+    body: urlParameters,
+  }).then((response) => response.json());
+}
 
 function Post() {
   const [post, setPost] = useState([]);
@@ -33,7 +50,11 @@ function Post() {
             </div>
             <div>
               <div className="likes">
-                <i className="fa-regular fa-thumbs-up fa-2x"></i>
+                <i
+                  className="fa-regular fa-thumbs-up fa-2x"
+                  id={element._id}
+                  onClick={Like}
+                ></i>
                 <div className="number-likes">{element.likes}</div>
               </div>
             </div>
