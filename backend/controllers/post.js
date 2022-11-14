@@ -1,3 +1,4 @@
+const { post } = require("../app");
 const Post = require("../models/post");
 //CREATION POST
 
@@ -114,120 +115,34 @@ exports.deletePost = (req, res, next) => {
 //MENTION LIKE OU DISLIKE
 
 exports.like = (req, res, next) => {
-  console.log(req);
-  if (req.body.likes == 1) {
-    Post.updateOne(
-      {
-        _id: req.body._id,
-      },
-      {
-        $push: {
-          usersLiked: req.auth.userId,
-        },
-        $inc: {
-          likes: +1,
-        },
-      }
-    )
-      .then(() =>
-        res.status(200).json({
-          message: "like validé",
-        })
-      )
-      .catch((error) =>
-        res.status(400).json({
-          error,
-        })
-      );
-  }
-  if (req.body.like === -1) {
-    console.log("2");
-    Post.updateOne(
-      {
-        _id: req.query._id,
-      },
-      {
-        $push: {
-          usersDisliked: req.body.userId,
-        },
-        $inc: {
-          dislikes: +1,
-        },
-      }
-    )
-      .then(() => {
-        res.status(200).json({
-          message: "dislike validé",
-        });
-      })
-      .catch((error) =>
-        res.status(400).json({
-          error,
-        })
-      );
-  }
-  if (req.body.like === 0) {
-    console.log("3");
-    Post.findOne({
-      _id: req.query._id,
-    })
-      .then((sauce) => {
-        if (post.usersLiked.includes(req.body.userId)) {
-          Post.updateOne(
-            {
-              _id: req.params.id,
+  if (req.body.likes == 1)
+    Post.findOne({ _id: req.body._id }).then((post) => {
+      if (post.usersLiked.includes(req.auth.userId)) {
+        res.status(403).json({ message: "Post déjà validé" });
+      } else {
+        Post.updateOne(
+          {
+            _id: req.body._id,
+          },
+          {
+            $push: {
+              usersLiked: req.auth.userId,
             },
-            {
-              $pull: {
-                usersLiked: req.body.userId,
-              },
-              $inc: {
-                likes: -1,
-              },
-            }
-          )
-            .then(() =>
-              res.status(200).json({
-                message: "like annulé",
-              })
-            )
-            .catch((error) =>
-              res.status(400).json({
-                error,
-              })
-            );
-        }
-        if (sauce.usersDisliked.includes(req.body.userId)) {
-          console.log("4");
-          Sauce.updateOne(
-            {
-              _id: req.params.id,
+            $inc: {
+              likes: +1,
             },
-            {
-              $pull: {
-                usersDisliked: req.body.userId,
-              },
-              $inc: {
-                dislikes: -1,
-              },
-            }
+          }
+        )
+          .then(() =>
+            res.status(200).json({
+              message: "like validé",
+            })
           )
-            .then(() =>
-              res.status(200).json({
-                message: "dislike annulé",
-              })
-            )
-            .catch((error) =>
-              res.status(400).json({
-                error,
-              })
-            );
-        }
-      })
-      .catch((error) =>
-        res.status(404).json({
-          error,
-        })
-      );
-  }
+          .catch((error) =>
+            res.status(400).json({
+              error,
+            })
+          );
+      }
+    });
 };

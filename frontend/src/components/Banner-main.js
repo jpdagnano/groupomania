@@ -2,6 +2,7 @@ import logo from "../assets/logo-header-main.jpg";
 import "../styles/banner-main.css";
 import "../styles/button-main.css";
 
+
 function removeLs() {
   localStorage.removeItem("token");
 }
