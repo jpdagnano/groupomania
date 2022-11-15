@@ -1,7 +1,6 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { useContext } = require("react");
 
 exports.signup = (req, res, next) => {
   console.log(req.body);
@@ -46,4 +45,11 @@ exports.login = (req, res, next) => {
         .catch((error) => res.status(500).json({ error }));
     })
     .catch((error) => res.status(500).json({ error }));
+};
+
+exports.getUserId = (req, res, next) => {
+  if (req.auth.userId) {
+    return res.status(200).json({ userId: req.auth.userId });
+  }
+  return res.status(404).json({ userId: null });
 };

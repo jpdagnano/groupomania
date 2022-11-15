@@ -24,6 +24,7 @@ exports.createPost = (req, res, next) => {
 //AFFICHAGE DE TOUS LES POSTS
 exports.getAllPosts = (req, res, next) => {
   Post.find()
+    .sort({ date: -1 })
     .then((posts) => {
       res.status(200).json(posts);
     })
