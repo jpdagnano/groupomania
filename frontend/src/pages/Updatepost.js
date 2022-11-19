@@ -8,7 +8,7 @@ function UpdatePost() {
   return (
     <div>
       <BannerMain /> <ModifyPost />
-      <ActualPost /> ;
+      <ActualPost />
       <DeleteButton />
     </div>
   );

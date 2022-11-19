@@ -1,3 +1,11 @@
+.html-class, body, .page-global{
+    height: 100%;
+
+}
+
+#root{
+    height: 100%;
+}
 .article-global{
     padding-top: 30px;
     margin-top: 30px;
@@ -10,11 +18,14 @@
     box-shadow: 3px 3px 10px 2px #4e5166;
 }
 
+.page-inferieure{
+    background-color: lavenderblush;
+    min-height: 100%;
+}
 .ensemble-posts{
     display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-    background-color: lavenderblush;
 }
 .article-titre{
     color:#FD2D01;

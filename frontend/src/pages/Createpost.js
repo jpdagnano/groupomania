@@ -4,8 +4,11 @@ import Formpost from "../components/Form-create";
 
 function Createp() {
   return (
-    <div>
-      <Banner /> <Formpost />;
+    <div className="page-global">
+      <Banner />
+      <div className="page-inf-create">
+        <Formpost />;
+      </div>
     </div>
   );
 }

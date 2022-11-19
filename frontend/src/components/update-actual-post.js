@@ -26,15 +26,8 @@ function ActualPost() {
         <h2 className="article-titre">{post.titre}</h2>
 
         <p className="article-texte">{post.description}</p>
-        <div className="article-date">
-          <div className="date">{post.date}</div>
-        </div>
-        <div>
-          <div className="likes">
-            <i className="fa-regular fa-thumbs-up"></i>
-            <div className="number-likes">{post.likes}</div>
-          </div>
-        </div>
+
+        <div></div>
       </div>
     </div>
   );

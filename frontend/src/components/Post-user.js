@@ -1,8 +1,5 @@
-
 import React, { useState, useEffect } from "react";
-import "../styles/post.css";
-
-
+import "../styles/userpost.css";
 
 function PostUser() {
   const [post, setPost] = useState([]);

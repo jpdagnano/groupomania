@@ -18,7 +18,6 @@ function CreatePost() {
     formdata.append("description", data.description);
     formdata.append("image", data.image[0]);
     formdata.append("userId", localStorage.getItem("userId"));
-    console.log(data.image);
     fetch("http://localhost:3001/createpost", {
       headers: new Headers({
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -81,9 +80,7 @@ function CreatePost() {
                   type="file"
                   accept="image/jpg, image/jpeg, image/png"
                   autoComplete="nope"
-                  {...register("image", {
-                    required: true,
-                  })}
+                  {...register("image")}
                 />
               </label>
             </div>

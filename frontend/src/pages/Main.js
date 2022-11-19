@@ -6,9 +6,10 @@ function Main() {
   return (
     <div className="page-global">
       <BannerMain />
-
-      <div className="ensemble-posts">
-        <Post />
+      <div className="page-inferieure">
+        <div className="ensemble-posts">
+          <Post />
+        </div>
       </div>
     </div>
   );

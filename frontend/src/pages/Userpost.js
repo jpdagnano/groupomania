@@ -4,9 +4,13 @@ import FormUser from "../components/Post-user.js";
 
 function userPost() {
   return (
-    <div>
+    <div className="page-global">
       <BannerMain />
-      <FormUser /> ;
+      <div className="page-inf">
+        <div className="ensemble-posts">
+          <FormUser />
+        </div>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
 const path = require("path");
-const formidableMiddleware = require("express-formidable");
 const userRoutes = require("./routes/user");
 const postRoutes = require("./routes/post");
 const postCtrl = require("./controllers/post");

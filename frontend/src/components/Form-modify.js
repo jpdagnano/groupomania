@@ -84,9 +84,7 @@ function ModifyPost() {
                   type="file"
                   accept="image/jpg, image/jpeg, image/png"
                   autoComplete="nope"
-                  {...register("image", {
-                    required: true,
-                  })}
+                  {...register("image")}
                 />
               </label>
             </div>
