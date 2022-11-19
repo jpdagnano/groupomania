@@ -14,4 +14,5 @@ router.post("/createpost", auth, multer, postCtrl.createPost);
 
 router.put("/updatepost", auth, multer, postCtrl.modifyPost);
 
+
 module.exports = router;

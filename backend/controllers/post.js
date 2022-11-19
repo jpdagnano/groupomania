@@ -20,7 +20,6 @@ exports.createPost = (req, res, next) => {
         res.status(400).json({ error });
       });
   } else {
-    console.log("2");
     const post = new Post({
       ...postObject,
       image: `${req.protocol}://${req.get("host")}/${req.file.path}`,
@@ -95,40 +94,68 @@ exports.getOnePost = (req, res, next) => {
     });
 };
 
-//MODIFICATION SAUCE
+//MODIFICATION POST
 
 exports.modifyPost = (req, res, next) => {
-  const postObject = req.file
-    ? {
-        ...req.body,
-        image: `${req.protocol}://${req.get("host")}/${req.file.path}`,
-      }
-    : { ...req.body };
-
-  Post.findOne({ _id: req.query._id })
-    .then((post) => {
-      if (
-        req.auth.userId === "63753ada31740d830baa0a5a" ||
-        req.auth.userId === req.query.userId
-      ) {
-        Post.updateOne(
-          { _id: req.query._id },
-          { ...postObject, _id: req.params.id }
-        )
-          .then(() =>
-            res.status(200).json({ message: "Modification effectuée" })
+  if (req.body.image === "undefined") {
+    console.log("pas image");
+    Post.findOne({ _id: req.query._id })
+      .then((post) => {
+        if (
+          req.auth.userId === "63753ada31740d830baa0a5a" ||
+          req.auth.userId === req.query.userId
+        ) {
+          Post.updateOne(
+            { _id: req.query._id },
+            {
+              titre: req.body.titre,
+              description: req.body.description,
+              _id: req.params.id,
+            }
           )
-          .catch((error) => res.status(401).json({ error }));
-      } else if (post.userId != req.auth.userId) {
-        res.status(401).json({ message: "Not authorized" });
-      }
-    })
-    .catch((error) => {
-      res.status(400).json({ error });
-    });
+
+            .then(() =>
+              res.status(200).json({ message: "Modification effectuée" })
+            )
+            .catch((error) => res.status(401).json({ error }));
+        }
+      })
+      .catch((error) => {
+        res.status(400).json({ error });
+      });
+  } else {
+    console.log(" image");
+    Post.findOne({ _id: req.query._id })
+      .then((post) => {
+        if (
+          req.auth.userId === "63753ada31740d830baa0a5a" ||
+          req.auth.userId === req.query.userId
+        ) {
+          Post.updateOne(
+            { _id: req.query._id },
+            {
+              titre: req.body.titre,
+              description: req.body.description,
+              _id: req.params.id,
+              image: `${req.protocol}://${req.get("host")}/${req.file.path}`,
+            }
+          )
+
+            .then(() =>
+              res.status(200).json({ message: "Modification effectuée" })
+            )
+            .catch((error) => res.status(401).json({ error }));
+        } else if (post.userId != req.auth.userId) {
+          res.status(401).json({ message: "Not authorized" });
+        }
+      })
+      .catch((error) => {
+        res.status(400).json({ error });
+      });
+  }
 };
 
-//SUPPRIMER UNE SAUCE
+//SUPPRIMER POST
 
 exports.deletePost = (req, res, next) => {
   Post.deleteOne({ _id: req.query._id })
@@ -144,7 +171,7 @@ exports.deletePost = (req, res, next) => {
     });
 };
 
-//MENTION LIKE OU DISLIKE
+//MENTION LIKE
 
 exports.like = (req, res, next) => {
   if (req.body.likes == 1)
