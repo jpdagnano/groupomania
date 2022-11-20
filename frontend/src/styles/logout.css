@@ -4,8 +4,8 @@
     border: solid 2px #4E5166;
     border-radius: 10px;
     width: 500px;
-    margin: 100px auto;
-
+    margin: auto;
+    background-color: gainsboro;
 }
 .bloc-logout{
     display: flex;
@@ -16,4 +16,28 @@
 .button-return{
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.page-infer{
+    min-height: 100%;
+    background-color: lavenderblush;
+    padding-top: 100px;
+}  
+
+.button-logout {
+  font-size: 16px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-logout:active {
+  top: 5px;
+  left: 5px;
 }

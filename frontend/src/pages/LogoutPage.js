@@ -4,8 +4,11 @@ import Banner from "../components/Banner";
 
 function LogoutPage() {
   return (
-    <div>
-      <Banner /> <Logout />;
+    <div className="page-global">
+      <Banner />{" "}
+      <div className="page-infer">
+        <Logout />;
+      </div>
     </div>
   );
 }

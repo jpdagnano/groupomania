@@ -98,7 +98,6 @@ exports.getOnePost = (req, res, next) => {
 
 exports.modifyPost = (req, res, next) => {
   if (req.body.image === "undefined") {
-    console.log("pas image");
     Post.findOne({ _id: req.query._id })
       .then((post) => {
         if (
@@ -124,7 +123,6 @@ exports.modifyPost = (req, res, next) => {
         res.status(400).json({ error });
       });
   } else {
-    console.log(" image");
     Post.findOne({ _id: req.query._id })
       .then((post) => {
         if (
