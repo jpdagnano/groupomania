@@ -3,8 +3,7 @@ import { React, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import ProtectedRoutes from "../services/PrivateRoutes";
-import axios from "axios";
-import { useEffect } from "react";
+
 
 function FormLogin() {
   const navigate = useNavigate();

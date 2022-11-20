@@ -42,50 +42,44 @@ function CreatePost() {
         <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
           <div className="form-elem">
             <div className="div-elem-form">
-              <label htmlFor="titre">
-                Titre de l'article:
-                <input
-                  type="text"
-                  autoComplete="nope"
-                  {...register("titre", {
-                    required: true,
-                    minLength: 10,
-                  })}
-                />
-                {errors.title && (
-                  <p>Veuillez saisir un titre de 10 caractères minimun</p>
-                )}
-              </label>
+              <input
+                className="input-form"
+                type="text"
+                autoComplete="nope"
+                placeholder="Titre du post"
+                {...register("titre", {
+                  required: true,
+                })}
+              />
+              {errors.title && (
+                <p>Veuillez saisir un titre de 10 caractères minimun</p>
+              )}
             </div>
             <div className="div-elem-form">
-              <label htmlFor="description">
-                Article:
-                <input
-                  type="text"
-                  autoComplete="nope"
-                  {...register("description", {
-                    required: true,
-                    minLength: 50,
-                  })}
-                />
-                {errors.article && (
-                  <p>Veuillez saisir un article de 50 caractères minimun</p>
-                )}
-              </label>
+              <textarea
+                className="input-form2"
+                type="text"
+                autoComplete="nope"
+                placeholder="contenu du post"
+                {...register("description", {
+                  required: true,
+                })}
+              />
+              {errors.article && (
+                <p>Veuillez saisir un article de 50 caractères minimun</p>
+              )}
             </div>
             <div className="form-group">
-              <label htmlFor="imageUrl">
-                Insérer une image
-                <input
-                  type="file"
-                  accept="image/jpg, image/jpeg, image/png"
-                  autoComplete="nope"
-                  {...register("image")}
-                />
-              </label>
+              image:
+              <input
+                type="file"
+                accept="image/jpg, image/jpeg, image/png"
+                placeholder="Choisir mon image"
+                {...register("image")}
+              />
             </div>
             <div className="action">
-              <button className="login-btn">Envoyer</button>
+              <button className="send-btn">Envoyer</button>
             </div>
           </div>
         </form>
