@@ -7,7 +7,8 @@ momentjs();
 
 function Post() {
   const [post, setPost] = useState([]);
-  const [like, setLike] = useState(0);
+
+  console.log("render");
 
   function Like(event) {
     let parameters = `likes=1&_id=${event.target.id}&`;
@@ -23,9 +24,13 @@ function Post() {
 
     for (let i = 0; i < post.length; i++) {
       if (post[i]._id === idSelected) {
-        setLike(post[i].likes + 1);
+        setPost((prevstate) => {
+          const nextState = prevstate;
+          nextState[i].likes += 1;
+          return nextState;
+        });
+        console.log(post);
       }
-      setLike(like);
     }
   }
   useEffect(() => {
@@ -42,7 +47,7 @@ function Post() {
   }, []);
 
   return post.map((element) => (
-    <div className="article-global">
+    <div className="article-global" key={element.id}>
       <div className="lien-image">
         <div className="image-global">
           <img src={element.image} alt="article" className="image-solo" />
@@ -61,6 +66,7 @@ function Post() {
               onClick={Like}
             ></i>
             <div className="number-likes">{element.likes}</div>
+            {console.log(element.likes)}
           </div>
         </div>
       </div>
