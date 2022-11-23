@@ -7,8 +7,9 @@ const useAuth = () => {
     headers: new Headers({
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     }),
+  }).then((data) => {
+    console.log(data.userId);
   });
-  return true;
 };
 
 const ProtectedRoutes = () => {

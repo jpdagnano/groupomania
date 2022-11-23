@@ -23,13 +23,12 @@ function Post() {
     });
 
     for (let i = 0; i < post.length; i++) {
-      if (post[i]._id === idSelected) {
+      if (post[i]._id === idSelected && post[i].likes < 1) {
         setPost((prevstate) => {
-          const nextState = prevstate;
+          const nextState = [...prevstate];
           nextState[i].likes += 1;
           return nextState;
         });
-        console.log(post);
       }
     }
   }

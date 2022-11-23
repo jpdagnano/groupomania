@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import ProtectedRoutes from "../services/PrivateRoutes";
 
-
 function FormLogin() {
   const navigate = useNavigate();
 
@@ -48,7 +47,7 @@ function FormLogin() {
               <input
                 type="email"
                 placeholder="Adresse e-mail"
-                autocomplete="nope"
+                autoComplete="nope"
                 {...register("email", {
                   required: true,
                   pattern:
@@ -61,7 +60,7 @@ function FormLogin() {
               <input
                 type="password"
                 placeholder="Mot de passe"
-                autocomplete="new-password"
+                autoComplete="new-password"
                 {...register("password", { required: true, minLength: 8 })}
               />
               {errors.password && (
