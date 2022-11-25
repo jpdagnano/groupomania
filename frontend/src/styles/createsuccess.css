@@ -14,7 +14,21 @@
     align-items: center;
 }
 
-.button-return{
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
+
+
+.button-return {
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    padding: 0.25em 0.5em;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-return:active {
+    top: 5px;
+    left: 5px;
+  }

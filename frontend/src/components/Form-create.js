@@ -49,7 +49,6 @@ function CreatePost() {
                   required: true,
                 })}
               />
-
             </div>
             <div className="div-elem-form">
               <textarea
@@ -71,8 +70,8 @@ function CreatePost() {
                 {...register("image")}
               />
             </div>
-            <div className="action">
-              <button className="send-btn">Envoyer</button>
+            <div className="send-create">
+              <button className="button-anim1">Envoyer</button>
             </div>
           </div>
         </form>

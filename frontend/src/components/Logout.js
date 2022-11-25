@@ -9,7 +9,7 @@ function Logout() {
           Cliquez sur le bouton ci-dessous pour retourner à la page d'accueil.
         </p>
         <a className="button-return" href="/">
-          <button href="/" className="button-logout">
+          <button href="/" className="button-anim1">
             Revenir à la page d'accueil
           </button>
         </a>

@@ -13,7 +13,7 @@
     align-items: center;
 }
 
-.button-return{
+.button-return {
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -24,7 +24,7 @@
     padding-top: 100px;
 }  
 
-.button-logout {
+.button-anim1 {
   font-size: 16px;
   text-decoration: none;
   color: #000;
@@ -37,7 +37,11 @@
   touch-action: manipulation;
 }
 
-.button-logout:active {
+.button-anim1:active {
   top: 5px;
   left: 5px;
+}
+.button-anim1:hover{
+    color: #898989;
+    transition: all .2s;
 }
