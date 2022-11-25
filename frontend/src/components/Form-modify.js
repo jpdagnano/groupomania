@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { DateTime } from "luxon";
+import DeleteButton from "./Delete-button";
+import "../styles/modifypost.css";
 
 const pageIdWindow = window.location.search;
 const longId = new URLSearchParams(pageIdWindow);
@@ -9,11 +9,7 @@ const pageId = longId.get("_id");
 
 function ModifyPost() {
   const navigate = useNavigate();
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm();
+  const { handleSubmit, register } = useForm();
 
   function onSubmit(data) {
     let formdata = new FormData();
@@ -21,7 +17,6 @@ function ModifyPost() {
     formdata.append("description", data.description);
     formdata.append("image", data.image[0]);
     formdata.append("userId", localStorage.getItem("userId"));
-    console.log(data.image);
     fetch("http://localhost:3001/updatepost?_id=" + pageId, {
       headers: new Headers({
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -47,34 +42,28 @@ function ModifyPost() {
           <div className="form-elem">
             <div className="div-elem-form">
               <label htmlFor="titre">
-                Titre de l'article:
                 <input
+                  className="titre-modify"
                   type="text"
                   autoComplete="nope"
+                  placeholder="Titre de l'article"
                   {...register("titre", {
                     required: true,
-                    minLength: 10,
                   })}
                 />
-                {errors.title && (
-                  <p>Veuillez saisir un titre de 10 caractères minimun</p>
-                )}
               </label>
             </div>
             <div className="div-elem-form">
               <label htmlFor="description">
-                Article:
-                <input
+                <textarea
+                  className="textarea-modify"
                   type="text"
                   autoComplete="nope"
+                  placeholder="contenu du post"
                   {...register("description", {
                     required: true,
-                    minLength: 50,
                   })}
                 />
-                {errors.article && (
-                  <p>Veuillez saisir un article de 50 caractères minimun</p>
-                )}
               </label>
             </div>
             <div className="form-group">
@@ -89,7 +78,8 @@ function ModifyPost() {
               </label>
             </div>
             <div className="action">
-              <button className="login-btn">Envoyer</button>
+              <button className="login-btn send-btn-modify">Envoyer</button>
+              {DeleteButton()}
             </div>
           </div>
         </form>

@@ -16,6 +16,7 @@ input:-moz-placeholder { text-align:center; }
     margin: auto;
     border: 3px black solid;
     border-radius: 20px;
+    box-shadow: 5px 5px 13px 3px #4e5166;
 }
 
 .div-elem-form, .form-group, .action{

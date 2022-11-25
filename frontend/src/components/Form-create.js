@@ -2,8 +2,6 @@ import "../styles/createpost.css";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { DateTime } from "luxon";
 function CreatePost() {
   const navigate = useNavigate();
   const {
@@ -51,9 +49,7 @@ function CreatePost() {
                   required: true,
                 })}
               />
-              {errors.title && (
-                <p>Veuillez saisir un titre de 10 caractères minimun</p>
-              )}
+
             </div>
             <div className="div-elem-form">
               <textarea
@@ -65,9 +61,6 @@ function CreatePost() {
                   required: true,
                 })}
               />
-              {errors.article && (
-                <p>Veuillez saisir un article de 50 caractères minimun</p>
-              )}
             </div>
             <div className="form-group">
               image:

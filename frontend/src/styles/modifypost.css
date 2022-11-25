@@ -1,0 +1,19 @@
+.modifiy-actual{
+    display: flex;
+    margin: 0px 15px 0px 15px
+}
+
+.send-btn-modify{
+    margin-bottom:10px;
+}
+
+.titre-modify{
+    width: 80%;
+}
+
+.textarea-modify{
+        font-family: 'lato';
+        width: 80%;
+        min-height: 70px;
+   
+}

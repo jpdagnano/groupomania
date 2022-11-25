@@ -8,8 +8,6 @@ momentjs();
 function Post() {
   const [post, setPost] = useState([]);
 
-  console.log("render");
-
   function Like(event) {
     let parameters = `likes=1&_id=${event.target.id}&`;
     let idSelected = event.target.id;
@@ -65,7 +63,6 @@ function Post() {
               onClick={Like}
             ></i>
             <div className="number-likes">{element.likes}</div>
-            {console.log(element.likes)}
           </div>
         </div>
       </div>

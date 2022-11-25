@@ -1,4 +1,3 @@
-const { post } = require("../app");
 const Post = require("../models/post");
 //CREATION POST
 
@@ -102,7 +101,7 @@ exports.modifyPost = (req, res, next) => {
       .then((post) => {
         if (
           req.auth.userId === "63753ada31740d830baa0a5a" ||
-          req.auth.userId === req.query.userId
+          req.auth.userId === req.body.userId
         ) {
           Post.updateOne(
             { _id: req.query._id },
@@ -127,7 +126,7 @@ exports.modifyPost = (req, res, next) => {
       .then((post) => {
         if (
           req.auth.userId === "63753ada31740d830baa0a5a" ||
-          req.auth.userId === req.query.userId
+          req.auth.userId === req.body.userId
         ) {
           Post.updateOne(
             { _id: req.query._id },

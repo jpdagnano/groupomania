@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 const pageIdWindow = window.location.search;
 const longId = new URLSearchParams(pageIdWindow);

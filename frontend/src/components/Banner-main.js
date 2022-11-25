@@ -2,7 +2,6 @@ import logo from "../assets/logo-header-main.jpg";
 import "../styles/banner-main.css";
 import "../styles/button-main.css";
 
-
 function removeLs() {
   localStorage.removeItem("token");
 }
@@ -28,10 +27,7 @@ function BannerMain() {
             Créer un post
           </a>
         </button>
-        <button
-          onClick={removeLs}
-          className="button-logout bttn-pill bttn-lg bttn-primary"
-        >
+        <button onClick={removeLs} className=" bttn-pill bttn-lg bttn-primary">
           <a className="focus-button" href="/logout">
             Se déconnecter
           </a>

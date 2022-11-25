@@ -11,8 +11,6 @@ router.get("/userpost", auth, postCtrl.getUserPost);
 router.get("/updatepost", auth, postCtrl.getOnePost);
 router.delete("/updatepost", auth, postCtrl.deletePost);
 router.post("/createpost", auth, multer, postCtrl.createPost);
-
 router.put("/updatepost", auth, multer, postCtrl.modifyPost);
-
 
 module.exports = router;
