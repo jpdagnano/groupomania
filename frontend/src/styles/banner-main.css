@@ -1,3 +1,4 @@
+
 #header-main{
     display: flex;
     height: 100px;
@@ -29,3 +30,30 @@
     color: #FD2D01;
 }
 
+
+@media all and (max-width : 1040px){
+.div-logo-main{
+justify-content: center;  }
+
+#header-main{
+    flex-direction: column;
+    height: 150px;
+}
+ 
+}
+
+@media all and (max-width:600px){
+    .groupo-logo-main{
+        margin:auto;
+        width: 100%;
+    }
+    .div-logo-main{
+width: auto;
+    }
+    #header-main{
+        height: 300px;
+    }
+    .button-banner{
+        flex-direction: column;
+    }
+}

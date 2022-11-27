@@ -22,7 +22,7 @@ function DeleteButton() {
   }
   return (
     <div className="button-anim">
-      <button className="button-anim1" onClick={DeleteFetch}>
+      <button className="button-send" onClick={DeleteFetch}>
         Supprimer le post
       </button>
     </div>

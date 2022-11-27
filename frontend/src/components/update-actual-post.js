@@ -18,7 +18,7 @@ function ActualPost() {
   }, []);
 
   return (
-    <div className="article-global">
+    <div className="article-global ">
       <div className="lien-image">
         <div className="image-global">
           <img src={post.image} alt="article" className="image-solo" />

@@ -78,7 +78,7 @@ function ModifyPost() {
               </label>
             </div>
             <div className="action">
-              <button className="button-anim1">Envoyer</button>
+              <button className="button-send">Envoyer</button>
               {DeleteButton()}
             </div>
           </div>

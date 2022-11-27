@@ -12,22 +12,22 @@ function BannerMain() {
         <img src={logo} alt="logo Groupomania" className="groupo-logo-main" />
       </div>
       <div className="button-banner ">
-        <button className="button-all-post bttn-pill bttn-lg bttn-primary">
+        <button className="button-header">
           <a className="focus-button" href="/main">
             Tous les posts
           </a>
         </button>
-        <button className="button-all-post bttn-pill bttn-lg bttn-primary">
+        <button className="button-header">
           <a className="focus-button" href="/userpost">
             Modifier mes posts
           </a>
         </button>
-        <button className="button-create-post bttn-pill bttn-lg bttn-primary">
+        <button className="button-header">
           <a className="focus-button" href="/createpost">
             Créer un post
           </a>
         </button>
-        <button onClick={removeLs} className=" bttn-pill bttn-lg bttn-primary">
+        <button onClick={removeLs} className=" button-header">
           <a className="focus-button" href="/logout">
             Se déconnecter
           </a>
