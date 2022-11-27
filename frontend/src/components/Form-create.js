@@ -1,4 +1,5 @@
 import "../styles/createpost.css";
+import "../styles/button-send.css";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -71,7 +72,7 @@ function CreatePost() {
               />
             </div>
             <div className="send-create">
-              <button className="button-anim1">Envoyer</button>
+              <button className="button-send">Envoyer</button>
             </div>
           </div>
         </form>

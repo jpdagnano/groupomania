@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 const pageIdWindow = window.location.search;
 const longId = new URLSearchParams(pageIdWindow);
@@ -22,8 +21,10 @@ function DeleteButton() {
     });
   }
   return (
-    <div className="delete-button">
-      <button onClick={DeleteFetch}>Supprimer le post</button>
+    <div className="button-anim">
+      <button className="button-anim1" onClick={DeleteFetch}>
+        Supprimer le post
+      </button>
     </div>
   );
 }

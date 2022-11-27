@@ -7,6 +7,7 @@ function userPost() {
     <div className="page-global">
       <BannerMain />
       <div className="page-inf">
+        <div className="select-post">Selectionnez un post à modifier</div>
         <div className="ensemble-posts">
           <FormUser />
         </div>

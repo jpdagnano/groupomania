@@ -40,9 +40,8 @@ input:-moz-placeholder { text-align:center; }
 }
 
 
-
-
-.send-create{
-    padding-top: 20px;
-    text-align: center;
+.div-full-form{
+    position: sticky;
 }
+
+.send-create{text-align: center;}

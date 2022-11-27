@@ -32,3 +32,15 @@
     top: 5px;
     left: 5px;
   }
+  .page-create-full{
+    height: 100%;
+  }
+
+  .page-create-no-header{
+    height: 100%;
+    background-color: lavenderblush;;
+  }
+
+  .bloc-success{
+    background-color: gainsboro;
+  }

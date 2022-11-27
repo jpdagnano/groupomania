@@ -21,7 +21,7 @@ function Post() {
     });
 
     for (let i = 0; i < post.length; i++) {
-      if (post[i]._id === idSelected && post[i].likes < 1) {
+      if (post[i]._id === idSelected) {
         setPost((prevstate) => {
           const nextState = [...prevstate];
           nextState[i].likes += 1;
