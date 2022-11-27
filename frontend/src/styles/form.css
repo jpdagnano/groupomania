@@ -90,3 +90,9 @@
   .no-account{
     text-align: center;
   }
+
+  @media all and (max-width:540px){
+    .login-form{
+      width: 90%;
+    }
+  }

@@ -4,7 +4,7 @@ function CreateSuccess() {
   return (
     <div className="page-logout">
       <div className="bloc-logout">
-        <h1>Votre compte à bien été crée</h1>
+        <h1>Votre compte a bien été crée</h1>
         <p>Cliquez sur le bouton ci-dessous pour vous authentifier.</p>
         <a className="button-return" href="/">
           <button className="button-anim1" href="/">

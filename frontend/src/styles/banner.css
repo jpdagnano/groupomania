@@ -9,8 +9,18 @@
     height: 100px;
     display: flex;
     justify-content: center;
+
 }
 
 .groupo-logo{
     display: flex;
+}
+
+@media all and (max-width:530px){
+    .groupo-logo{
+        width: 90%;
+    }
+    .page-logout{
+        width: 80%;
+    }
 }

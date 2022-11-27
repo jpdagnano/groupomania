@@ -45,3 +45,15 @@
     color: #898989;
     transition: all .2s;
 }
+
+@media all and (max-width:530px){
+    .groupo-logo{
+        width: 90%;
+    }
+    .page-logout{
+        width: 80%;
+    }
+    .bloc-logout{
+        text-align: center;
+    }
+}

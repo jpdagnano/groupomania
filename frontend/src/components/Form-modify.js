@@ -36,7 +36,7 @@ function ModifyPost() {
   }
 
   return (
-    <div className="bloc-form">
+    <div className="bloc-form bloc-form-modify">
       <div className="div-full-form">
         <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
           <div className="form-elem">
