@@ -18,17 +18,19 @@ function Post() {
         "Content-Type": "application/x-www-form-urlencoded",
       }),
       body: parameters,
-    });
-
-    for (let i = 0; i < post.length; i++) {
-      if (post[i]._id === idSelected) {
-        setPost((prevstate) => {
-          const nextState = [...prevstate];
-          nextState[i].likes += 1;
-          return nextState;
-        });
+    }).then((response) => {
+      if (response.status === 200) {
+        for (let i = 0; i < post.length; i++) {
+          if (post[i]._id === idSelected) {
+            setPost((prevstate) => {
+              const nextState = [...prevstate];
+              nextState[i].likes += 1;
+              return nextState;
+            });
+          }
+        }
       }
-    }
+    });
   }
   useEffect(() => {
     fetch("http://localhost:3001/main", {
