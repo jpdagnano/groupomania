@@ -19,7 +19,6 @@ function FormSignup() {
     }).then(function (response) {
       if (response.ok) {
         navigate("/createsuccess");
-        console.log("fait");
       } else {
         alert("Il semblerait que votre compte existe déjà");
       }

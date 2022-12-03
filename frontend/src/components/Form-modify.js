@@ -26,9 +26,7 @@ function ModifyPost() {
       body: formdata,
     }).then(function (response) {
       if (response.ok) {
-        console.log(data);
         navigate("/userpost");
-        console.log("fait");
       } else {
         alert("Champ manquant/erreur avec l'image");
       }

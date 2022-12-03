@@ -14,7 +14,6 @@ function DeleteButton() {
     }).then(function (response) {
       if (response.ok) {
         navigate("/main");
-        console.log("fait");
       } else {
         alert("erreur");
       }

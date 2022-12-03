@@ -26,9 +26,7 @@ function CreatePost() {
       body: formdata,
     }).then(function (response) {
       if (response.ok) {
-        console.log(data);
         navigate("/main");
-        console.log("fait");
       } else {
         alert("Champ manquant/erreur avec l'image");
       }
