@@ -101,7 +101,7 @@ exports.modifyPost = (req, res, next) => {
       .then((post) => {
         if (
           req.auth.userId === "63753ada31740d830baa0a5a" ||
-          req.auth.userId === req.body.userId
+          req.auth.userId === post.userId
         ) {
           Post.updateOne(
             { _id: req.query._id },
@@ -126,7 +126,7 @@ exports.modifyPost = (req, res, next) => {
       .then((post) => {
         if (
           req.auth.userId === "63753ada31740d830baa0a5a" ||
-          req.auth.userId === req.body.userId
+          req.auth.userId === post.userId
         ) {
           Post.updateOne(
             { _id: req.query._id },
@@ -155,17 +155,24 @@ exports.modifyPost = (req, res, next) => {
 //SUPPRIMER POST
 
 exports.deletePost = (req, res, next) => {
-  Post.deleteOne({ _id: req.query._id })
-    .then(() => {
-      res.status(200).json({
-        message: "Post supprimée!",
-      });
-    })
-    .catch((error) => {
-      res.status(400).json({
-        error: error,
-      });
-    });
+  Post.findOne({ _id: req.query._id }).then((post) => {
+    if (
+      req.auth.userId === "63753ada31740d830baa0a5a" ||
+      req.auth.userId === post.userId
+    ) {
+      Post.deleteOne({ _id: req.query._id })
+        .then(() => {
+          res.status(200).json({
+            message: "Post supprimée!",
+          });
+        })
+        .catch((error) => {
+          res.status(400).json({
+            error: error,
+          });
+        });
+    }
+  });
 };
 
 //MENTION LIKE

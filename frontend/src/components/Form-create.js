@@ -8,7 +8,6 @@ function CreatePost() {
   const {
     handleSubmit,
     register,
-    formState: { errors },
   } = useForm();
 
   function onSubmit(data) {
